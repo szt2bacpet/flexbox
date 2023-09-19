@@ -4,15 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css"> <!-- CSS fájl beillesztése -->
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
     <div class="container">
-        <!-- Színválasztó input -->
-        <input type="color" id="colorPicker">
-        <!-- Gomb a háttérszín változtatásához -->
-        <button id="changeColorButton">Háttérszín változtatása</button>
         <div class="purplebox"></div>
         <div class="lighterbluebox"></div>
         <div class="lightbluebox"></div>
@@ -21,15 +17,32 @@
         <div class="lightpinkbox"></div>
         <div class="purplebox"></div>
         <div class="idkcolorbox"></div>
+        
+        <input type="color" id="colorPicker">
+        
+        <label for="elementSelect">Változtatandó elem:</label>
+        <select id="elementSelect">
+            <option value="purplebox">Lila doboz</option>
+            <option value="lighterbluebox">Világoskék doboz</option>
+            <option value="lightbluebox">Kék doboz</option>
+            <option value="darkbluebox">Sötétkék doboz</option>
+            <option value="pinkbox">Rózsaszín doboz</option>
+            <option value="lightpinkbox">Világos rózsaszín doboz</option>
+            <option value="idkcolorbox">Ismeretlen színű doboz</option>
+        </select>
+
+        <button id="changeColorButton">Szín változtatása</button>
     </div>
     <script>
         const colorPicker = document.getElementById('colorPicker');
+        const elementSelect = document.getElementById('elementSelect');
         const changeColorButton = document.getElementById('changeColorButton');
 
-        // Eseménykezelő hozzáadása a gombhoz
         changeColorButton.addEventListener('click', () => {
-            const selectedColor = colorPicker.value; // Kiválasztott szín értékének lekérése az inputból
-            document.documentElement.style.setProperty('--background-color', selectedColor); // CSS változó beállítása az új színre
+            const selectedColor = colorPicker.value;
+            const selectedElement = elementSelect.value;
+            
+            document.querySelector('.' + selectedElement).style.backgroundColor = selectedColor;
         });
     </script>
 </body>
