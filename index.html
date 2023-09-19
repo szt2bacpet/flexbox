@@ -4,11 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css"> <!-- CSS fájl beillesztése -->
     <title>Document</title>
 </head>
 <body>
     <div class="container">
+        <!-- Színválasztó input -->
+        <input type="color" id="colorPicker">
+        <!-- Gomb a háttérszín változtatásához -->
+        <button id="changeColorButton">Háttérszín változtatása</button>
         <div class="purplebox"></div>
         <div class="lighterbluebox"></div>
         <div class="lightbluebox"></div>
@@ -18,6 +22,15 @@
         <div class="purplebox"></div>
         <div class="idkcolorbox"></div>
     </div>
-    
+    <script>
+        const colorPicker = document.getElementById('colorPicker');
+        const changeColorButton = document.getElementById('changeColorButton');
+
+        // Eseménykezelő hozzáadása a gombhoz
+        changeColorButton.addEventListener('click', () => {
+            const selectedColor = colorPicker.value; // Kiválasztott szín értékének lekérése az inputból
+            document.documentElement.style.setProperty('--background-color', selectedColor); // CSS változó beállítása az új színre
+        });
+    </script>
 </body>
 </html>
