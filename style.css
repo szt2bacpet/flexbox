@@ -1,4 +1,4 @@
-body{
+body {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -6,72 +6,59 @@ body{
     background-color: var(--background-color);
     margin: 0;
 }
-.container{
+
+.container {
     display: flex;
     flex-wrap: wrap;
-    
 }
-:root {
-    --background-color: white; /* Alapértelmezett háttérszín */
-  }
 
-.purplebox{
+:root {
+    --background-color: white; 
+}
+
+
+.box {
     width: 400px;
     height: 200px;
     margin: 10px;
     display: inline-block;
+}
+
+.purplebox {
     background-color: rgb(138 43 226);
 }
-.lighterbluebox{
-    width: 400px;
-    height: 200px;
-    margin: 10px;
-    display: inline-block;
+
+.lighterbluebox {
     background-color: rgb(173 216 216);
 }
-.lightbluebox{
-    width: 400px;
-    height: 200px;
-    margin: 10px;
-    display: inline-block;
+
+.lightbluebox {
     background-color: rgb(0 255 255);
 }
-.darkbluebox{
-    width: 400px;
-    height: 200px;
-    margin: 10px;
-    display: inline-block;
+
+.darkbluebox {
     background-color: rgb(0 128 128);
 }
-.pinkbox{
-    width: 400px;
-    height: 200px;
-    margin: 10px;
-    display: inline-block;
+
+.pinkbox {
     background-color: rgb(219 112 147);
 }
-.lightpinkbox{
-    width: 400px;
-    height: 200px;
-    margin: 10px;
-    display: inline-block;
+
+.lightpinkbox {
     background-color: rgb(255 192 203);
 }
-.purplebox{
-    width: 400px;
-    height: 200px;
-    margin: 10px;
-    display: inline-block;
-    background-color: rgb(255 0 255);
-}
-.idkcolorbox{
-    width: 400px;
-    height: 200px;
-    margin: 10px;
-    display: inline-block;
+
+.idkcolorbox {
     background-color: rgb(250 128 114);
 }
-button{
+
+button {
     width: 150px;
     height: 35px;
+}
+
+#resizeButton {
+    width: 150px;
+    height: 35px;
+    margin: 10px;
 }

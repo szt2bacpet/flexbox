@@ -5,21 +5,19 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>css változó</title>
 </head>
 <body>
     <div class="container">
-        <div class="purplebox"></div>
-        <div class="lighterbluebox"></div>
-        <div class="lightbluebox"></div>
-        <div class="darkbluebox"></div>
-        <div class="pinkbox"></div>
-        <div class="lightpinkbox"></div>
-        <div class="purplebox"></div>
-        <div class="idkcolorbox"></div>
-        
+        <div class="box purplebox"></div>
+        <div class="box lighterbluebox"></div>
+        <div class="box lightbluebox"></div>
+        <div class="box darkbluebox"></div>
+        <div class="box pinkbox"></div>
+        <div class="box lightpinkbox"></div>
+        <div class="box purplebox"></div>
+        <div class="box idkcolorbox"></div>
         <input type="color" id="colorPicker">
-        
         <label for="elementSelect">Változtatandó elem:</label>
         <select id="elementSelect">
             <option value="purplebox">Lila doboz</option>
@@ -30,19 +28,40 @@
             <option value="lightpinkbox">Világos rózsaszín doboz</option>
             <option value="idkcolorbox">Ismeretlen színű doboz</option>
         </select>
-
         <button id="changeColorButton">Szín változtatása</button>
+        <input type="range" id="sizeSlider" min="200" max="350" step="1" value="200">
+        <button id="resizeButton">Méret módosítása</button>
     </div>
+    
     <script>
+        const sizeSlider = document.getElementById('sizeSlider');
+        const resizeButton = document.getElementById('resizeButton');
+        const boxes = document.querySelectorAll('.box');
         const colorPicker = document.getElementById('colorPicker');
         const elementSelect = document.getElementById('elementSelect');
         const changeColorButton = document.getElementById('changeColorButton');
 
+        sizeSlider.addEventListener('input', () => {
+            const newSize = sizeSlider.value + 'px';
+            boxes.forEach(box => {
+                box.style.width = newSize;
+                box.style.height = newSize;
+            });
+        });
+
+        resizeButton.addEventListener('click', () => {
+            const newSize = sizeSlider.value + 'px';
+            boxes.forEach(box => {
+                box.style.width = newSize;
+                box.style.height = newSize;
+            });
+        });
+
         changeColorButton.addEventListener('click', () => {
             const selectedColor = colorPicker.value;
             const selectedElement = elementSelect.value;
-            
-            document.querySelector('.' + selectedElement).style.backgroundColor = selectedColor;
+            const selectedBox = document.querySelector(`.${selectedElement}`);
+            selectedBox.style.backgroundColor = selectedColor;
         });
     </script>
 </body>
